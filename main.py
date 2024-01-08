@@ -34,9 +34,9 @@ def downstatus(statusfile,message):
 			txt = downread.read()
 		try:
 			bot.edit_message_text(message.chat.id, message.id, f"__Downloaded__ : **{txt}**")
-			time.sleep(10)
-		except:
 			time.sleep(5)
+		except:
+			time.sleep(2)
 
 
 # upload status
@@ -45,15 +45,15 @@ def upstatus(statusfile,message):
 		if os.path.exists(statusfile):
 			break
 
-	time.sleep(3)      
+	time.sleep(1)      
 	while os.path.exists(statusfile):
 		with open(statusfile,"r") as upread:
 			txt = upread.read()
 		try:
 			bot.edit_message_text(message.chat.id, message.id, f"__Uploaded__ : **{txt}**")
-			time.sleep(10)
-		except:
 			time.sleep(5)
+		except:
+			time.sleep(3)
 
 
 # progress writter
@@ -252,7 +252,6 @@ USAGE = """**FOR PUBLIC CHATS**
 **__just send post/s link__**
 
 **FOR PRIVATE CHATS**
-
 **__first send invite link of the chat (unnecessary if the account of string session already member of the chat)
 then send post/s link__**
 
@@ -260,19 +259,13 @@ then send post/s link__**
 
 **__send link with** '/b/', **bot's username and message id, you might want to install some unofficial client to get the id like below__**
 
-```
 https://t.me/b/botusername/4321
 ```
 
 **MULTI POSTS**
 
 **__send public/private posts link as explained above with formate "from - to" to send multiple messages like below__**
-
-```
 https://t.me/xxxx/1001-1010
-
-https://t.me/c/xxxx/101 - 120
-```
 
 **__note that space in between doesn't matter__**
 """
